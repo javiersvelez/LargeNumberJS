@@ -67,11 +67,6 @@ function newCustomArray(rows, cols, value) {
 
 
 
-
-
-
-
-
 //Multiplies the given large number  n times. Recieves number and n times, returns result as a String
 function largeMultiply(number, times) {
     var mat = new Array();
@@ -83,52 +78,57 @@ function largeMultiply(number, times) {
     //log(mat);
     var product = largeSum(mat);
     return product;
+}
 
-    function largeSum(numbers) {
-        var column = numbers[0].length - 1;
-        var SUM = ""
-        var rest = 0;
+function largeSum(numbers) {
+    var column = numbers[0].length - 1;
+    var SUM = ""
+    var rest = 0;
 
-        for (column; column >= 0; column--) {
-            var columnSum = 0;
-            for (var i = 0; i < numbers.length; i++) {
-                columnSum += parseInt(numbers[i][column]);
-
-            }
-            columnSum += rest;
-
-            var sumStr = String(columnSum);
-            var digit = sumStr.slice(-1);
-            var reststr = sumStr.slice(0, sumStr.length - 1);
-
-            if (reststr == "")
-                rest = 0;
-            else
-                rest = parseInt(reststr);
-
-            var temp = SUM;
-            SUM = "" + digit + temp;
+    for (column; column >= 0; column--) {
+        var columnSum = 0;
+        for (var i = 0; i < numbers.length; i++) {
+            columnSum += parseInt(numbers[i][column]);
 
         }
+        columnSum += rest;
 
-        if (rest > 0) {
-            var temp = SUM;
-            SUM = "" + rest + temp;
-        }
+        var sumStr = String(columnSum);
+        var digit = sumStr.slice(-1);
+        var reststr = sumStr.slice(0, sumStr.length - 1);
 
-        return SUM;
+        if (reststr == "")
+            rest = 0;
+        else
+            rest = parseInt(reststr);
+
+        var temp = SUM;
+        SUM = "" + digit + temp;
+
     }
 
+    if (rest > 0) {
+        var temp = SUM;
+        SUM = "" + rest + temp;
+    }
+
+    return SUM;
+}
 
 
-    function largeFactorial(number) {
-        current = "" + number;
-        start = number;
-        for (var i = 0; i < number - 2; i++) {
 
-            start--;
+function largeFactorial(number) {
+    current = "" + number;
+    start = number;
+    for (var i = 0; i < number - 2; i++) {
+        start--;
+        //log ("largeMultiply(" + current + "," + start + ")" );
+        current = largeMultiply(current, start);
+        //log("current: " + current);
+    }
 
-            //log ("largeMultiply(" + current + "," + start + ")" );
+    return current;
+}           //log ("largeMultiply(" + current + "," + start + ")" );
             current = largeMultiply(current, start);
             //log("current: " + current);
         }
