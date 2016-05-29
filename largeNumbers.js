@@ -128,11 +128,4 @@ function largeFactorial(number) {
     }
 
     return current;
-}           //log ("largeMultiply(" + current + "," + start + ")" );
-            current = largeMultiply(current, start);
-            //log("current: " + current);
-        }
-
-        return current;
-
-    }
+}
