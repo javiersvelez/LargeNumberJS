@@ -1,13 +1,61 @@
 <html>
-	<head>
-	<style>body{font-family:Arial;}</style>
-	</head>
-	<body>
-		<h1>largeNumbersJS</h1>
-	</body>
-	<script>
-	
-		
-	</script>
-</html>
 
+<head>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        #ex3{ font-size: 11px;}
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="largeNumbers.js"></script>
+</head>
+
+<body>
+    <h1>largeNumbersJS</h1>
+    <p>javiers.velez@gmail.com</p>
+    <h2>Examples</h2>
+    <div id="examples">
+        <h3>Sum</h3>
+        <p id="ex1">12345678901234567890 + 23456789012345678901
+            <br>R = </p>
+        
+         <h3>Multiplication</h3>
+        <p id="ex2"> 23456789012345678901 x 98765
+            <br>R = </p>
+        
+        <h3>Factorial</h3>
+        <p> 876!<br>R = </p>
+        <p id="ex3"></p>
+    </div>
+
+</body>
+<script>
+    //Example 1
+    var num1 = "12345678901234567890".split("");
+    var num2 = "23456789012345678901".split("");
+    var data = [num1, num2];
+
+    var res1 = largeSum(data);
+    $("#ex1").append(res1);
+    
+    //Example 2
+    var res2 = largeMultiply("23456789012345678901", "98765");
+    $("#ex2").append(res2);
+    
+    //Example 3
+    var res3 = largeFactorial("876");
+    for (var i = 0; i < res3.length; i++){
+        if (i % 200 == 0){
+            $("#ex3").append('</br>');
+        }
+        $("#ex3").append(res3.charAt(i));
+    }
+    
+    //$("#ex3").append(res3);
+    
+    
+    
+</script>
+
+</html>
